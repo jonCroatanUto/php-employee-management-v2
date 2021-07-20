@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php require_once('./src/library/sessionHelper.php'); ?>
+<?php require_once('./src/lib/controller.php'); ?>
 
 <head>
     <meta charset="UTF-8">
