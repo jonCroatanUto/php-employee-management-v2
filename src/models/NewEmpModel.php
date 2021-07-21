@@ -7,18 +7,14 @@ class NewEmpModel extends Model{
   }
   public function insert(){
       echo "insertar";
-      $this->db->connect();
-      $sql = "SELECT * FROM questions ";
-    $result = $conn->query($sql);
+      $query=$this->db->connect()->query("SELECT * FROM questions ");
 
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
+   
+        while ($row = $query->fetch_assoc()) {
             $dataQuestions = $row['question'];
         }
         print_r( $dataQuestions);
-    } else {
-        exit;
-    }
-    $conn->close();
+    
+    // $conn->close();
     }
   }
