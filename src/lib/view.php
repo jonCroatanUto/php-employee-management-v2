@@ -1,10 +1,19 @@
 <?php
 class View{
-   static function show(){
-        echo("
-        <div>
-        <h1>that's a require muther fucker</h1>
-        </div>
-        ");
+
+    function __construct(){
+      echo "<h3>Base Veiw</h3>"; 
     }
+     function render($nombre){
+         require "./view/".$nombre.".php";
+     }
 }
+?>
+
+
+
+
+
+
+
+

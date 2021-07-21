@@ -3,9 +3,10 @@ session_start();
 
 function goLogin()
 {
+    //echo $_SERVER['REQUEST_URI'];
     $url = $_SERVER['REQUEST_URI'];
     if (!str_contains($url, 'index.php')) {
-        header("Location: ../index.php");
+       header("Location: ./index.php");
     }
 }
 
