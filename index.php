@@ -1,8 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php require_once('./src/library/sessionHelper.php'); ?>
+<!-- <!DOCTYPE html>
+<html lang="en"> -->
+<?php 
+    // require_once('./src/library/sessionHelper.php'); 
 
-<head>
+    // Requiring database,MVC and App classes
+    require_once "./libs/database.php";
+    require_once "./libs/controller.php";
+    require_once "./libs/model.php";
+    require_once "./libs/view.php";
+    require_once "./libs/app.php";
+
+    // Requiring config constants and db constants
+    require_once './config/constants.php';
+    require_once './config/db.php';
+
+    // Instantiating an App object to run every part of the MVC flow
+    $app = new App();
+?>
+
+<!-- <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,4 +57,4 @@
 </body>
 <script src="./assets/js/index.js"></script>
 
-</html>
+</html> -->
