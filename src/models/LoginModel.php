@@ -1,6 +1,6 @@
 <?php
 
-class NewEmpModel extends Model{
+class LoginModel extends Model{
   public function __construct(){
       parent:: __construct();
 
@@ -16,5 +16,6 @@ class NewEmpModel extends Model{
         print_r($dataQuestions);
     
     // $conn->close();
+
     }
   }
