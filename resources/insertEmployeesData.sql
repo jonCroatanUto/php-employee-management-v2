@@ -71,6 +71,7 @@ photo
 INSERT INTO categories(
 
 employee_no,
+
 categories_position,
 categories_startDate,
 categories_finalDate
