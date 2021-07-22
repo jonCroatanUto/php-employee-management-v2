@@ -1,11 +1,11 @@
 <?php
-class NewEmp extends Controller{
+class Login extends Controller{
    function __construct(){
         parent::__construct();
         $this->view->render("nuevo/index");
         
     }
-    function registroEmpoyee(){
+    function registroEmployee(){
         echo "nuevo employee";
         
         $this->model->insert();

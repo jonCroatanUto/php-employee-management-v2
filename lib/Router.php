@@ -27,6 +27,9 @@ class Router{
             $controller->loadModel($url[0]);
 
             if(isset($url[1])){
+                // echo $url[1]."<br>";
+                // var_dump($controller);
+                // echo "<br>";
                 $controller->{$url[1]}();
             }
         }else{

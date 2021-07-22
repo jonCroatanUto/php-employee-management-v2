@@ -11,11 +11,22 @@ class DataBase{
         $this->db=constant("DB");
         $this->user=constant("USER");
         $this->password=constant("PASSWORD");
+        $this->charset=constant("CHARSET");
     }
     function connect(){
         try{
-            $conn = new mysqli($this->host, $this->user, $this->password, $this->db);
-            return $conn;
+            $connection = "mysql:host=" . $this->host . ";"
+                . "dbname=" . $this->db . ";"
+                . "charset=" . $this->charset;
+
+            $options = [
+                        PDO::ATTR_ERRMODE           => PDO::ERRMODE_EXCEPTION, 
+                        PDO::ATTR_EMULATE_PREPARES  => FALSE
+                        ];
+            
+            $pdo = new PDO($connection, $this->user, $this->password, $options);
+            return $pdo;
+
         }catch(mysqli_sql_exception $e){
             throw $e;
         }
