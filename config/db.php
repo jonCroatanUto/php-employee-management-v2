@@ -1,6 +1,6 @@
 <?php
 
-    define("DB", "employees_mvc");
+    define("DB", "mvcemployees");
     define("USER", "root");
     define("PASSWORD", "");
     define("HOST", "localhost");

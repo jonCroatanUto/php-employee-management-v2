@@ -51,7 +51,8 @@ function renderTable(employeesJson = {}) {
       loadData: function (response) {
         return $.ajax({
           type: "GET",
-          url: employeeUrl,
+          url: "http://localhost/projects/php-employee-management-v2/Dashboard/getAllEmployees",
+          // url: employeeUrl,
           data: response,
         });
       },
