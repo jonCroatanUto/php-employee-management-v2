@@ -5,7 +5,7 @@ class Login extends Controller{
         $this->view->render("nuevo/index");
         
     }
-    function loginUser(){
+    function registroEmployee(){
         echo "nuevo employee";
         
         $this->model->insert();
