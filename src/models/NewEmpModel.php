@@ -11,9 +11,9 @@ class NewEmpModel extends Model{
 
    
         while ($row = $query->fetch_assoc()) {
-            $dataQuestions = $row['question'];
+            $dataQuestions[] = $row['question'];
         }
-        print_r( $dataQuestions);
+        print_r($dataQuestions);
     
     // $conn->close();
     }

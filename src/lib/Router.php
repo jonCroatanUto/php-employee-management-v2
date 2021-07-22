@@ -5,7 +5,7 @@ require_once "./src/controllers/errors.php";
 
 class Router{
     function __construct(){
-        $url= isset($_GET["url"]) ? $_GET['url']:null;
+        $url=isset($_GET["url"]) ? $_GET['url']:null;
         $url=rtrim($url,"/");
         $url=explode("/",$url);
         if(empty($url[0])){
@@ -23,6 +23,7 @@ class Router{
             require_once $archivoController;
             
             $controller = new $url[0];
+            
             $controller->loadModel($url[0]);
 
             if(isset($url[1])){
