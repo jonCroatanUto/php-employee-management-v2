@@ -1,6 +1,6 @@
 <?php
 
-require_once "./src/controllers/errors.php";
+require_once "./controllers/errors.php";
 
 
 class Router{
@@ -9,14 +9,14 @@ class Router{
         $url=rtrim($url,"/");
         $url=explode("/",$url);
         if(empty($url[0])){
-            $archivoController='./src/controllers/Main.php';
+            $archivoController='./controllers/Main.php';
             require_once $archivoController;
             $controller = new Main();
             $controller->loadModel('Main');
             return false;
         }
 
-        $archivoController = "./src/controllers/". $url[0] . '.php';
+        $archivoController = "./controllers/". $url[0] . '.php';
         
         if (file_exists($archivoController)){
             
@@ -27,6 +27,9 @@ class Router{
             $controller->loadModel($url[0]);
 
             if(isset($url[1])){
+                // echo $url[1]."<br>";
+                // var_dump($controller);
+                // echo "<br>";
                 $controller->{$url[1]}();
             }
         }else{

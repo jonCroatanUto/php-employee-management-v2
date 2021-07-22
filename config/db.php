@@ -1,6 +1,9 @@
 <?php
-define("URL", "http://localhost/php-employee-management-v2/");
-define("DB", "exam");
-define("USER", "root");
-define("PASSWORD", "root");
-define("HOST", "localhost");
+
+    define("DB", "employees_mvc");
+    define("USER", "root");
+    define("PASSWORD", "");
+    define("HOST", "localhost");
+    define('CHARSET', 'utf8mb4');
+
+?>
