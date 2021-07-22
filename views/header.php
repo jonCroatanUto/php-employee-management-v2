@@ -11,7 +11,7 @@
       "
     >
       <img
-        src="../assets/images/assembler_logo_wht.png"
+        src="<?php echo constant('BASE_URL'); ?>/assets/images/assembler_logo_wht.png"
         alt="Assembler Logo"
         width="140"
         height="40"
@@ -23,7 +23,7 @@
         <a href="./dashboard.php" class="nav-link text-white" id="navDashboard">
           <svg class="bi d-block mx-auto mb-1" width="24" height="24">
             <use
-              xlink:href="../node_modules/bootstrap-icons/bootstrap-icons.svg#speedometer2"
+              xlink:href="<?php echo constant('BASE_URL'); ?>/node_modules/bootstrap-icons/bootstrap-icons.svg#speedometer2"
             ></use>
           </svg>
           Dashboard
@@ -33,7 +33,7 @@
         <a href="#" class="nav-link text-secondary disabled" id="navEmployee">
           <svg class="bi d-block mx-auto mb-1" width="24" height="24">
             <use
-              xlink:href="../node_modules/bootstrap-icons/bootstrap-icons.svg#person-fill"
+              xlink:href="<?php echo constant('BASE_URL'); ?>/node_modules/bootstrap-icons/bootstrap-icons.svg#person-fill"
             ></use>
           </svg>
           Employee

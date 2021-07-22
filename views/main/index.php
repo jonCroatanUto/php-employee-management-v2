@@ -27,6 +27,7 @@
 </head>
 
 <body>
+    <?php require_once "./views/header.php";?> 
     <div class="d-flex login-container align-items-center justify-content-center">
         <div class="login-form p-5 rounded">
             <h3>Login</h3>
@@ -44,6 +45,7 @@
             <div class="text-danger"></div>
         </div>
     </div>
+    <?php require_once "./views/footer.php";?> 
 </body>
 <!-- <script src="./assets/js/index.js"></script> -->
 
