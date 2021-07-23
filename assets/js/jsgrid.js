@@ -1,5 +1,11 @@
 const employeeUrl = "./library/employeeController.php";
-
+// $.ajax({
+//   url:"./config/constants.php",
+//   type:"GET",
+//   success: function (data){
+//     console.log(data);
+//   }
+// })
 $.ajax({
   url: employeeUrl,
   method: "GET",
@@ -47,7 +53,8 @@ function renderTable(employeesJson = {}) {
     autoload: true,
     // filtering: true,
     rowDoubleClick: function (item) {
-      window.location.replace("./employee.php?id=" + item.item.id);
+      //make able to pas paramaters by url: item.item.id
+      window.location.replace("./Employee/renderEmployee");
     },
 
     controller: {
