@@ -2,12 +2,30 @@
 class Login extends Controller{
    function __construct(){
         parent::__construct();
-        $this->view->render("nuevo/index");
+        
         
     }
-    function registroEmployee(){
-        echo "nuevo employee";
-        
-        $this->model->insert();
+    function userLogin(){
+       
+        $user=$_POST["user"];
+        $password=$_POST["password"];
+        $users= $this->model->getUsers();
+        $isUser=$this->model->getUserData($user,$users);
+       
+
+        if(!$isUser==""){    
+                        
+           $this->model->checkUserPass($password,$users,$isUser);
+            if(isset($_SESSION['userId'])){
+                
+                $this->view->render("dashboard/index");
+            }else{
+                $this->view->render("login/index");
+                echo "error";
+            } 
+        }else{
+            $this->view->render("login/index");
+                echo "error";
+        }
     }
 }
