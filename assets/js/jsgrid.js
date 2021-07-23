@@ -57,7 +57,7 @@ function renderTable(employeesJson = {}) {
           url: "getAllEmployees",
           dataType: "json",
           // url: employeeUrl,
-          // data: response,
+           //data: response,
           // success: function (data) {
           //   console.log(data);
           // },

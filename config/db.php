@@ -1,8 +1,8 @@
 <?php
 
-    define("DB", "mvcemployees");
+    define("DB", "MVCemployees");
     define("USER", "root");
-    define("PASSWORD", "");
+    define("PASSWORD", "root");
     define("HOST", "localhost");
     define('CHARSET', 'utf8mb4');
 
