@@ -9,7 +9,10 @@ $.ajax({
     $("#navEmployee")
       .attr("href", "./employee.php?new=true")
       .removeClass("disabled");
-      $("#navEmployee svg use").attr('xlink:href', '../node_modules/bootstrap-icons/bootstrap-icons.svg#person-plus-fill');
+    $("#navEmployee svg use").attr(
+      "xlink:href",
+      "../node_modules/bootstrap-icons/bootstrap-icons.svg#person-plus-fill"
+    );
   })
   .fail(function (response) {})
   .always(function () {});
@@ -51,9 +54,13 @@ function renderTable(employeesJson = {}) {
       loadData: function (response) {
         return $.ajax({
           type: "GET",
-          url: "http://localhost/projects/php-employee-management-v2/Dashboard/getAllEmployees",
+          url: "getAllEmployees",
+          dataType: "json",
           // url: employeeUrl,
-          data: response,
+          // data: response,
+          // success: function (data) {
+          //   console.log(data);
+          // },
         });
       },
       insertItem: function (item) {
@@ -67,58 +74,65 @@ function renderTable(employeesJson = {}) {
     data: employeesJson,
 
     fields: [
-      { name: "id", title: "id", type: "text", visible: false },
+      { name: "employee_no", title: "id", type: "number", visible: false },
       {
-        name: "name",
+        name: "emp_name",
         title: "Name",
         type: "text",
         width: 3,
         validate: "required",
       },
       {
-        name: "email",
-        title: "Email",
+        name: "emp_lastName",
+        title: "Last Name",
         type: "text",
-        width: 10,
+        width: 3,
         validate: "required",
       },
       {
-        name: "age",
+        name: "emp_email",
+        title: "Email",
+        type: "text",
+        width: 3,
+        validate: "required",
+      },
+      {
+        name: "emp_age",
         title: "Age",
         type: "number",
         width: 2,
         validate: "required",
       },
       {
-        name: "streetAddress",
+        name: "emp_streetAddress",
         title: "Street No.",
         type: "number",
         width: 2,
         validate: "required",
       },
       {
-        name: "city",
+        name: "emp_city",
         title: "City",
         type: "text",
         width: 3,
         validate: "required",
       },
       {
-        name: "state",
+        name: "emp_state",
         title: "State",
         type: "text",
         width: 2,
         validate: "required",
       },
       {
-        name: "postalCode",
+        name: "emp_postalCode",
         title: "Postal Code",
         type: "number",
         width: 2,
         validate: "required",
       },
       {
-        name: "phoneNumber",
+        name: "emp_phoneNum",
         title: "Phone Number",
         type: "number",
         width: 3,
