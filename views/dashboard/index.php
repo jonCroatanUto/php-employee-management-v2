@@ -38,6 +38,8 @@
     <?php require_once "./views/footer.php";?> 
 </body>
 
+
+<script>const BASE_url= "<?php echo constant('BASE_URL'); ?>"</script>
 <script type="text/javascript" src="<?php echo constant('BASE_URL'); ?>node_modules/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo constant('BASE_URL'); ?>node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="<?php echo constant('BASE_URL'); ?>node_modules/jsgrid/dist/jsgrid.min.js"></script>

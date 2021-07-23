@@ -6,22 +6,23 @@ const employeeUrl = "./library/employeeController.php";
 //     console.log(data);
 //   }
 // })
-$.ajax({
-  url: employeeUrl,
-  method: "GET",
-})
-  .done(function (response) {
-    renderTable(response);
-    $("#navEmployee")
-      .attr("href", "./employee.php?new=true")
-      .removeClass("disabled");
-    $("#navEmployee svg use").attr(
-      "xlink:href",
-      "../node_modules/bootstrap-icons/bootstrap-icons.svg#person-plus-fill"
-    );
-  })
-  .fail(function (response) {})
-  .always(function () {});
+// console.log(BASE_url);
+// $.ajax({
+//   url: employeeUrl,
+//   method: "GET",
+// })
+//   .done(function (response) {
+//     renderTable(response);
+//     $("#navEmployee")
+//       .attr("href", "./employee.php?new=true")
+//       .removeClass("disabled");
+//     $("#navEmployee svg use").attr(
+//       "xlink:href",
+//       "../node_modules/bootstrap-icons/bootstrap-icons.svg#person-plus-fill"
+//     );
+//   })
+//   .fail(function (response) {})
+//   .always(function () {});
 
 function insertItemHandler(item) {
   console.log(item);
@@ -52,9 +53,10 @@ function renderTable(employeesJson = {}) {
     paging: true,
     autoload: true,
     // filtering: true,
-    rowDoubleClick: function (item) {
-      //make able to pas paramaters by url: item.item.id
-      window.location.replace("./Employee/renderEmployee");
+    rowDoubleClick: function (item) {   
+      
+      
+      window.location.replace(`${BASE_url}Employee/renderEmployee/${item.item.employee_no}`);
     },
 
     controller: {
@@ -67,7 +69,7 @@ function renderTable(employeesJson = {}) {
            //data: response,
           // success: function (data) {
           //   console.log(data);
-          // },
+          //  },
         });
       },
       insertItem: function (item) {
@@ -149,3 +151,4 @@ function renderTable(employeesJson = {}) {
     ],
   });
 }
+renderTable();
