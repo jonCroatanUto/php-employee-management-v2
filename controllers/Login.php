@@ -18,7 +18,7 @@ class Login extends Controller{
            $this->model->checkUserPass($password,$users,$isUser);
             if(isset($_SESSION['userId'])){
                 
-                $this->view->render("dashboard/index");
+                header("Location:".BASE_URL."Dashboard/renderDashboard");
             }else{
                 $this->view->render("login/index");
                 echo "error";
