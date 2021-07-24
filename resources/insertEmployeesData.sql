@@ -29,6 +29,9 @@ emp_age
 (1, "Robert","Thomson","jackon@network.com","man","126","New Orleans","LU","394221","7383627627","24"),
 (2, "Rack","Lei","jackon@network.com","man","126","New Orleans","CA","63281","91232876454","26");
 
+-- insert for delete tests
+INSERT INTO employees(us_id,emp_name,emp_lastName,emp_email,emp_gender,emp_streetAddress,emp_city,emp_state,emp_postalCode,emp_phoneNum,emp_age)
+VALUES(1,"Leon", "Kennedy", "leonk@umbrella.com", "man", "33", "Racoon City", "US", "123456", "649731825", "44");
 
 INSERT INTO holidays(
 
