@@ -1,7 +1,66 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
+<?php
+session_start();
+if(isset($_SESSION["employeeData"])){
+    
+    $formMethod = "PUT";
 
+    $name = $_SESSION["employeeData"][0]["emp_name"];
+    $lastName = $_SESSION["employeeData"][0]["emp_lastName"];
+    $email = $_SESSION["employeeData"][0]["emp_email"];
+    $gender = $_SESSION["employeeData"][0]["emp_gender"];
+    echo $gender;
+    $city =$_SESSION["employeeData"][0]["emp_city"];
+    $streetAddress = $_SESSION["employeeData"][0]["emp_streetAddress"];
+    $state = $_SESSION["employeeData"][0]["emp_state"];
+    $age = $_SESSION["employeeData"][0]["emp_age"];
+    $postalCode = $_SESSION["employeeData"][0]["emp_postalCode"];
+    $phoneNumber = $_SESSION["employeeData"][0]["emp_phoneNum"];
+    // Setting up select echo string
+    $options = "";
+    $genderArray = array("", "woman", "man", "other", "No answer");
+    foreach ($genderArray as $genderItem) {
+        if ($gender == $genderItem && $gender == "") {
+            $options .= "<option hidden selected>Choose...</option>";
+        } elseif ($gender == $genderItem && $gender != "") {
+            $options .= "<option selected>" . $genderItem . "</option>";
+        } else {
+            $options .= "<option>" . $genderItem . "</option>";
+        }
+    }
+}else{
+
+    $formMethod = "POST";
+
+    $name = "";
+    $lastName = "";
+    $email = "";
+    $gender = "";
+    $city="";
+    $streetAddress = "";
+    $state = "";
+    $age = "";
+    $postalCode = "";
+    $phoneNumber = "";
+
+    $options = "";
+    $genderArray = array("", "woman", "man", "other", "No answer");
+    foreach ($genderArray as $genderItem) {
+        if ($gender == $genderItem) {
+            $options .= "<option hidden selected>Select</option>";
+        } else {
+            $options .= "<option>" . $genderItem . "</option>";
+        }
+    }
+}
+
+
+
+
+
+?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,11 +92,11 @@
                 <h2 id="employeeTitle">Employee</h2>
             </div>
             <div class="col">
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" action="updateEmployee" method="POST" novalidate>
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="name" class="form-label">First name</label>
-                            <input type="text" class="form-control" id="name" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="name" placeholder="" value="<?php echo $name;?>" required>
                             <div class="invalid-feedback">
                                 Valid first name is required.
                             </div>
@@ -45,11 +104,11 @@
 
                         <div class="col-sm-6">
                             <label for="lastName" class="form-label">Last name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="">
+                            <input type="text" class="form-control" id="lastName" placeholder="" value="<?php echo($lastName);?>">
                         </div>
                         <div class="col-md-8">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="user@example.com" required>
+                            <input type="email" class="form-control" id="email" placeholder="user@example.com" value="<?php echo($email);?>"required>
                             <div class="invalid-feedback">
                                 Please enter a valid email address.
                             </div>
@@ -58,52 +117,48 @@
                         <div class="col-md-4">
                             <label for="gender" class="form-label">Gender</label>
                             <select class="form-select" id="gender">
-                                <option value="">Choose...</option>
-                                <option value="woman">Woman</option>
-                                <option value="man">Man</option>
-                                <option value="other">Other</option>
-                                <option value="no answer">No answer</option>
+                            <?php echo $options; ?>
                             </select>
                         </div>
 
                         <div class="col-sm-6">
                             <label for="city" class="form-label">City</label>
-                            <input type="text" class="form-control" id="city" required>
+                            <input type="text" class="form-control" id="city"value="<?php echo($city);?>" required>
                             <div class="invalid-feedback">
                                 Please enter the employee's city.
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <label for="streetAddress" class="form-label">Street Address</label>
-                            <input type="number" class="form-control" id="streetAddress" placeholder="1234" required>
+                            <input type="number" class="form-control" id="streetAddress" placeholder="1234" value="<?php echo($streetAddress);?>"required>
                             <div class="invalid-feedback">
                                 Please enter the street number.
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <label for="state" class="form-label">State</label>
-                            <input type="text" class="form-control" id="state" placeholder="CA" required>
+                            <input type="text" class="form-control" id="state" placeholder="CA" value="<?php echo($state);?>" required>
                             <div class="invalid-feedback">
                                 Please enter the state.
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <label for="age" class="form-label">Age</label>
-                            <input type="number" class="form-control" id="age" placeholder="22" required>
+                            <input type="number" class="form-control" id="age" placeholder="22" value="<?php echo($age);?>" required>
                             <div class="invalid-feedback">
                                 Please enter the employee's age.
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <label for="postalCode" class="form-label">Postal Code</label>
-                            <input type="text" class="form-control" id="postalCode" placeholder="394221" required>
+                            <input type="text" class="form-control" id="postalCode" placeholder="394221" value="<?php echo($postalCode);?>" required>
                             <div class="invalid-feedback">
                                 Please enter the employee's postal code.
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <label for="phoneNumber" class="form-label">Phone Number</label>
-                            <input type="number" class="form-control" id="phoneNumber" placeholder="123456789" required>
+                            <input type="number" class="form-control" id="phoneNumber" placeholder="123456789" value="<?php echo($phoneNumber);?>" required>
                             <div class="invalid-feedback">
                                 Please enter the phone number.
                             </div>
@@ -152,7 +207,13 @@
     </div>
     </main>
     </div>
+    <script></script>
     <script type="text/javascript" src="<?php echo constant('BASE_URL'); ?>assets/js/employee.js"></script>
+    <?php
+
+        // if(isset($_SESSION["employeeData"])){
+        //     unset($_SESSION["employeeData"]);
+        // };?>
     <?php
 
     // if (isset($_GET["id"])) {

@@ -1,16 +1,17 @@
 "use strict";
 
-  $.ajax({
-    type:"GET",
-    url:"http://localhost/php-employee-management-v2/Employee/dataEmployee/4",
+  // $.ajax({
+  //   type:"GET",
+  //   url:"http://localhost/php-employee-management-v2/Employee/dataEmployee/4",
     
-    //dataType:"json",
-    success:function (data){
-      let json =JSON.parse(data);
-     //$("body").append(data);
-     console.log(json);
-    }
-  })
+  //   //dataType:"json",
+  //   success:function (data){
+  //     let json =JSON.parse(data);
+  //    //$("body").append(data);
+  //    console.log(json);
+  //    getattribute .value()
+  //   }
+  // })
 
 
 // const employeeUrl = "./library/employeeController.php";

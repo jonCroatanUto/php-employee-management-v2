@@ -54,10 +54,11 @@ function renderTable(employeesJson = {}) {
     autoload: true,
     // filtering: true,
     rowDoubleClick: function (item) {   
-      
-      
-      window.location.replace(`${BASE_url}Employee/renderEmployee/${item.item.employee_no}`);
+     window.location.replace(`${BASE_url}Dashboard/dataEmployee/${item.item.employee_no}`);
+    
+     
     },
+   
 
     controller: {
       loadData: function (response) {
