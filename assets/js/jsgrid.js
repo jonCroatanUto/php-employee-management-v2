@@ -36,7 +36,7 @@ function deleteItemHandler(item) {
   console.log(item);
   return $.ajax({
     type: "DELETE",
-    url: baseURL + "Dashboard/deleteEmployee",
+    url: baseURL + "Dashboard/deleteEmployee/" + item.employee_no,
     data: item,
     success: function (item) {
       console.log(item);

@@ -45,13 +45,10 @@
             }
         }
 
-        public function deleteEmployee(){
-            if (!empty($_DELETE)) {
+        public function deleteEmployee($employee_no){
+            
+            $this->model->deleteEmployee($employee_no);
 
-                $employee_no = $_DELETE['employee_no'];
-                $this->model->deleteEmployee($employee_no);
-                
-            }
         }
     }
 ?>
