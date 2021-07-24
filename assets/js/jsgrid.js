@@ -1,12 +1,6 @@
 const employeeUrl = "./library/employeeController.php";
-// $.ajax({
-//   url:"./config/constants.php",
-//   type:"GET",
-//   success: function (data){
-//     console.log(data);
-//   }
-// })
-// console.log(BASE_url);
+// console.log(baseURL);
+
 // $.ajax({
 //   url: employeeUrl,
 //   method: "GET",
@@ -28,18 +22,27 @@ function insertItemHandler(item) {
   console.log(item);
   return $.ajax({
     type: "POST",
-    url: employeeUrl,
+    url: baseURL + "Dashboard/insertEmployee",
     data: item,
+    // success: function (item) {
+    //   console.log(item);
+    // },
   }).done(() => {
     $("#jsGrid").jsGrid("loadData");
   });
 }
 
 function deleteItemHandler(item) {
+  console.log(item);
   return $.ajax({
     type: "DELETE",
-    url: employeeUrl,
+    url: baseURL + "Dashboard/deleteEmployee/" + item.employee_no,
     data: item,
+    success: function (item) {
+      console.log(item);
+    },
+  }).done(() => {
+    $("#jsGrid").jsGrid("loadData");
   });
 }
 
@@ -53,21 +56,20 @@ function renderTable(employeesJson = {}) {
     paging: true,
     autoload: true,
     // filtering: true,
-    rowDoubleClick: function (item) {   
-     window.location.replace(`${BASE_url}Dashboard/dataEmployee/${item.item.employee_no}`);
-    
-     
+    rowDoubleClick: function (item) {
+      window.location.replace(
+        `${baseURL}Dashboard/dataEmployee/${item.item.employee_no}`
+      );
     },
-   
 
     controller: {
       loadData: function (response) {
         return $.ajax({
           type: "GET",
-          url: "getAllEmployees",
+          url: baseURL + "Dashboard/getAllEmployees",
           dataType: "json",
           // url: employeeUrl,
-           //data: response,
+          // data: response,
           // success: function (data) {
           //   console.log(data);
           //  },
@@ -85,6 +87,13 @@ function renderTable(employeesJson = {}) {
 
     fields: [
       { name: "employee_no", title: "id", type: "number", visible: false },
+      {
+        name: "us_id",
+        title: "us_creator_id",
+        type: "number",
+        width: 3,
+        validate: "required",
+      },
       {
         name: "emp_name",
         title: "Name",
@@ -109,14 +118,16 @@ function renderTable(employeesJson = {}) {
       {
         name: "emp_age",
         title: "Age",
-        type: "number",
+        type: "text",
+        // type: "number",
         width: 2,
         validate: "required",
       },
       {
         name: "emp_streetAddress",
         title: "Street No.",
-        type: "number",
+        type: "text",
+        // type: "number",
         width: 2,
         validate: "required",
       },
@@ -137,14 +148,16 @@ function renderTable(employeesJson = {}) {
       {
         name: "emp_postalCode",
         title: "Postal Code",
-        type: "number",
+        type: "text",
+        // type: "number",
         width: 2,
         validate: "required",
       },
       {
         name: "emp_phoneNum",
         title: "Phone Number",
-        type: "number",
+        type: "text",
+        // type: "number",
         width: 3,
         validate: "required",
       },
