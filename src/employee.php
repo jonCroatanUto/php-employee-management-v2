@@ -37,7 +37,7 @@
                     <div class="row g-3">
                         <div class="col-sm-6">
                             <label for="name" class="form-label">First name</label>
-                            <input type="text" name="firstName" class="form-control" id="name" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="name" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 Valid first name is required.
                             </div>

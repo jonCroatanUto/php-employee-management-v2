@@ -11,8 +11,8 @@ class Employee extends Controller{
     }
 
     public function updateEmployee(){
-        //parse_str(file_get_contents("php://input"), $_PUT);
-        echo $_POST["firstName"];
-        $this->model->updateEmployeeData();
+        parse_str(file_get_contents("php://input"), $_PUT);
+        //echo $_PUT["firstName"];
+        $this->model->updateEmployeeData($_PUT["firstName"]);
     }
 }
