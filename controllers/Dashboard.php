@@ -14,6 +14,14 @@
             echo json_encode($this->model->getAllEmployees());
         }
 
+        public function getEmployeeById($employee_no){
+            
+            session_start();
+            $_SESSION['employee'] = $this->model->getEmployeeById($employee_no);
+            header("Location:".BASE_URL."Employee");
+
+        }
+
         public function insertEmployee(){
             
             if (!empty($_POST)) {
