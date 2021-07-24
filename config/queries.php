@@ -8,7 +8,6 @@
         (:us_id, :emp_name, :emp_lastName, :emp_email, :emp_age, :emp_streetAddress, :emp_city, :emp_state, :emp_postalCode, :emp_phoneNum )"
     );
     define("DELETE_EMPLOYEE","DELETE FROM employees WHERE employee_no = :employee_no");
-    // define("DELETE_EMPLOYEE","DELETE FROM employees WHERE employee_no = 10");
     // define("USER", "root");
     // define("PASSWORD", "");
     // define("HOST", "localhost");
