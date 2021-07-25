@@ -16,4 +16,10 @@
         emp_name = :emp_name, emp_lastName = :emp_lastName, emp_email = :emp_email, emp_age = :emp_age, emp_streetAddress = :emp_streetAddress, emp_city = :emp_city, emp_state = :emp_state, emp_postalCode = :emp_postalCode, emp_phoneNum = :emp_phoneNum, emp_gender = :emp_gender 
         WHERE employee_no = :employee_no"
     );
+    define("INSERT_EMPLOYEE_EMPLOYEE", 
+        "INSERT INTO employees 
+        (us_id, emp_name, emp_lastName, emp_email, emp_age, emp_streetAddress, emp_city, emp_state, emp_postalCode, emp_phoneNum, emp_gender) 
+        VALUES
+        (:us_id, :emp_name, :emp_lastName, :emp_email, :emp_age, :emp_streetAddress, :emp_city, :emp_state, :emp_postalCode, :emp_phoneNum, :emp_gender)"
+    );
 ?>

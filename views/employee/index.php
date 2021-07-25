@@ -10,6 +10,7 @@
         // Setting up action
         $formAction = "updateEmployee";
 
+        $creatorId      = $_SESSION["employeeData"][0]["us_id"];
         $id             = $_SESSION["employeeData"][0]["employee_no"];
         $name           = $_SESSION["employeeData"][0]["emp_name"];
         $lastName       = $_SESSION["employeeData"][0]["emp_lastName"];
@@ -38,6 +39,7 @@
 
         $formAction = "insertEmployee";
 
+        $creatorId = $_SESSION["creatorId"];
         $name = "";
         $lastName = "";
         $email = "";
@@ -95,6 +97,11 @@
                 <form class="needs-validation" action="<?php echo $formAction; ?>" method="POST" novalidate>
                     <div class="row g-3">
                         
+                        <div class="d-none">
+                            <label for="usId" class="form-label">CreatorID</label>
+                            <input type="number" name ="usId" class="form-control" id="usId" placeholder="" value="<?php echo($creatorId);?>">
+                        </div>
+
                         <div class="d-none">
                             <label for="id" class="form-label">ID</label>
                             <input type="number" name ="id" class="form-control" id="id" placeholder="" value="<?php echo($id);?>">

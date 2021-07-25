@@ -20,7 +20,26 @@
           'emp_phoneNum'      => $updatedData['emp_phoneNum'],
           'emp_gender'        => $updatedData['emp_gender']
         ]);
-        
+
+    }
+
+    public function insertEmployee($insertData){
+        $query = $this->db->connect()->prepare(INSERT_EMPLOYEE_EMPLOYEE);
+        $query->execute([
+          'us_id'             => $insertData['us_id'],
+          'emp_name'          => $insertData['emp_name'], 
+          'emp_lastName'      => $insertData['emp_lastName'], 
+          'emp_email'         => $insertData['emp_email'], 
+          'emp_age'           => $insertData['emp_age'], 
+          'emp_streetAddress' => $insertData['emp_streetAddress'], 
+          'emp_city'          => $insertData['emp_city'], 
+          'emp_state'         => $insertData['emp_state'], 
+          'emp_postalCode'    => $insertData['emp_postalCode'], 
+          'emp_phoneNum'      => $insertData['emp_phoneNum'],
+          'emp_gender'        => $insertData['emp_gender']
+        ]);
+
     }
 }
+
 
