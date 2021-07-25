@@ -1,5 +1,8 @@
 <?php
 
+    // Login query
+    define("GETALL_USERS", "SELECT * FROM users");
+
     // Dashboard Model queries
     define("GETALL_EMPLOYEES", "SELECT * FROM employees");
     define("INSERT_EMPLOYEE_DASHBOARD", 

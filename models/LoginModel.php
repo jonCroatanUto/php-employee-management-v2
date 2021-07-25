@@ -8,7 +8,7 @@ class LoginModel extends Model{
   }
   public function getUsers(){
       
-      $query=$this->db->connect()->query("SELECT * FROM users");
+      $query=$this->db->connect()->query(GETALL_USERS);
 
    
         while ($row = $query->fetch()) {
