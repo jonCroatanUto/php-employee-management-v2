@@ -13,7 +13,7 @@
         public function getAllEmployees(){
             echo json_encode($this->model->getAllEmployees());
         }
-        
+
         public function dataEmployee($id){
             $employeeId=(int)$id;
             session_start();
@@ -25,7 +25,6 @@
             
             session_start();
             $_SESSION['employee'] = $this->model->getEmployeeById($employee_no);
-            header("Location:".BASE_URL."Employee");
 
         }
 
