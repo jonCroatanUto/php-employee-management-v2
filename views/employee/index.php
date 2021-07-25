@@ -7,7 +7,9 @@
 
     if(isset($_SESSION["employeeData"])){
         
-        // $formMethod = "PUT";
+        // Setting up action
+        $formAction = "updateEmployee";
+
         $id             = $_SESSION["employeeData"][0]["employee_no"];
         $name           = $_SESSION["employeeData"][0]["emp_name"];
         $lastName       = $_SESSION["employeeData"][0]["emp_lastName"];
@@ -34,7 +36,7 @@
         }
     }else{
 
-        // $formMethod = "POST";
+        $formAction = "insertEmployee";
 
         $name = "";
         $lastName = "";
@@ -90,7 +92,7 @@
                 <h2 id="employeeTitle">Employee</h2>
             </div>
             <div class="col">
-                <form class="needs-validation" action="updateEmployee" method="POST" novalidate>
+                <form class="needs-validation" action="<?php echo $formAction; ?>" method="POST" novalidate>
                     <div class="row g-3">
                         
                         <div class="d-none">

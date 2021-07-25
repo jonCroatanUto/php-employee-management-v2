@@ -31,7 +31,7 @@
 
       public function insertEmployee($data){
         
-        $query = $this->db->connect()->prepare(INSERT_EMPLOYEE);
+        $query = $this->db->connect()->prepare(INSERT_EMPLOYEE_DASHBOARD);
         $query->execute([
           'us_id'             => $data['us_id'],
           'emp_name'          => $data['emp_name'], 
