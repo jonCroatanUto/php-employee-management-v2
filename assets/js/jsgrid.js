@@ -57,7 +57,9 @@ function renderTable(employeesJson = {}) {
     autoload: true,
     // filtering: true,
     rowDoubleClick: function (item) {
-      window.location.replace("./employee.php?id=" + item.item.id);
+      window.location.replace(
+        `${baseURL}Dashboard/dataEmployee/${item.item.employee_no}`
+      );
     },
 
     controller: {
@@ -70,7 +72,7 @@ function renderTable(employeesJson = {}) {
           // data: response,
           // success: function (data) {
           //   console.log(data);
-          // },
+          //  },
         });
       },
       insertItem: function (item) {
@@ -163,5 +165,4 @@ function renderTable(employeesJson = {}) {
     ],
   });
 }
-
 renderTable();

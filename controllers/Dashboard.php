@@ -14,11 +14,17 @@
             echo json_encode($this->model->getAllEmployees());
         }
 
+        public function dataEmployee($id){
+            $employeeId=(int)$id;
+            session_start();
+            $_SESSION["employeeData"]=$this->model->getEmployeeData($employeeId);
+            header("Location:".BASE_URL."Employee/renderEmployee");
+        }
+
         public function getEmployeeById($employee_no){
             
             session_start();
             $_SESSION['employee'] = $this->model->getEmployeeById($employee_no);
-            header("Location:".BASE_URL."Employee");
 
         }
 

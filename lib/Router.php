@@ -52,6 +52,7 @@ class Router{
                 }
                 $controller->{$url[1]}($params);
             }
+            
         }else{
             $controller=new Errors();
         }         
