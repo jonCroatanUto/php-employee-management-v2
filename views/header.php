@@ -65,7 +65,7 @@
       </a>
       <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser">
         <li>
-          <a class="dropdown-item text-danger" onclick="logout()">Sign out</a>
+          <a class="dropdown-item text-danger" href="<?php echo constant('BASE_URL'); ?>SessionHelper/logout">Sign out</a>
         </li>
       </ul>
     </div>

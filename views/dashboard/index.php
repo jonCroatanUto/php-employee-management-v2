@@ -2,6 +2,7 @@
 <html lang="en" class="h-100">
 <?php 
 // require_once('./library/sessionHelper.php'); 
+
 ?>
 
 <head>
@@ -47,5 +48,6 @@
 <script type="text/javascript" src="<?php echo constant('BASE_URL'); ?>node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="<?php echo constant('BASE_URL'); ?>node_modules/jsgrid/dist/jsgrid.min.js"></script>
 <script type="text/javascript" src="<?php echo constant('BASE_URL'); ?>assets/js/jsgrid.js"></script>
+<script type="text/javascript" src="<?php echo constant('BASE_URL'); ?>assets/js/timeout.js"></script>
 
 </html>
