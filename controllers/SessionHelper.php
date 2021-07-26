@@ -13,20 +13,25 @@
             session_unset();
             session_destroy();
             setcookie(session_name(), "", time() - 3600);
-            // $this->view->render("login/index");
-            // header("Location:".BASE_URL);
             http_response_code(200);
+            header("Location:".BASE_URL);
         }
-
         public function checkTimeout(){
-            // echo "I'm in checkTimeout <br>";
-            // echo $_SESSION['time'];
-            // echo "time that passed isnce login is = ".(time() - $_SESSION['time']);
-            if (isset($_SESSION['userId'])) {
-                if (time() - $_SESSION['time'] >= 5) {
-                    echo "Logout";
+            
+            if (isset($_SESSION['userId'])){  
+                //echo time() - $_SESSION['time'];         
+             if (time() - $_SESSION['time'] >= 30) {
+                unset($_SESSION['userId']);
+                session_unset();
+                session_destroy();
+                setcookie(session_name(), "", time() - 3600);
+                echo "Logout"; 
+                
                 }
-                // $this->logout();
+            }
+        }
+   }
+            // $this->logout();
             //     } else {
             //         $url = $_SERVER['REQUEST_URI'];
             //         if (str_contains($url, 'index.php')) {
@@ -35,8 +40,4 @@
             //     }
             // } else {
             //     goLogin();
-            }
-        }
-    }
-
 ?>
