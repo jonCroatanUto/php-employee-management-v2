@@ -35,10 +35,24 @@
                         <input type="submit" class="btn btnSubmit" value="Login" />
                     </div>
                 </form>
-                <div class="text-danger"></div>
+                <div class="text-danger">
+                <?php  
+                if(isset($_SESSION["notWelcome"])){
+                    echo $_SESSION["notWelcome"]; 
+                    unset($_SESSION["notWelcome"]);
+                }else if(isset($_SESSION['wrongPassword'])){
+                    echo $_SESSION["wrongPassword"];
+                    unset($_SESSION["wrongPassword"]);
+                }else if(isset($_SESSION['wrongUser'])){
+                    echo $_SESSION["wrongUser"];
+                    unset($_SESSION["wrongUser"]);
+                }
+                    ?> 
+                </div>
             </div>
         </div>
         <?php require_once "./views/footer.php";?> 
+       
     </body>
 <!-- <script src="./assets/js/index.js"></script> -->
 

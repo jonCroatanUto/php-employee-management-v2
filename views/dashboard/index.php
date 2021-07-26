@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 <?php 
-// require_once('./library/sessionHelper.php'); 
 
+// require_once('./library/sessionHelper.php'); 
+if(!isset($_SESSION['userId'])){
+    header("Location:".BASE_URL);
+    $_SESSION["notWelcome"]="notWelcome";
+}
 ?>
 
 <head>
