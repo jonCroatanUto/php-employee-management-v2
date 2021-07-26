@@ -20,7 +20,7 @@
             
             if (isset($_SESSION['userId'])){  
                 //echo time() - $_SESSION['time'];         
-             if (time() - $_SESSION['time'] >= 30) {
+             if (time() - $_SESSION['time'] > 600) {
                 unset($_SESSION['userId']);
                 session_unset();
                 session_destroy();

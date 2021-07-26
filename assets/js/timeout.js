@@ -10,13 +10,13 @@ setInterval(function () {
       if (cleanResp=="Logout"){
          console.log(cleanResp+"<-ajaxREsponse to logout");
          console.log(baseURL);
-         window.location.assign(baseURL)
-      // }else{
-      //   console.log("not logout");
+         window.location.assign(baseURL);
+      }else{
+        console.log("not logout");
         }
     }
   });
-}, 5000);
+}, 60000);
 
 // Closing the ses
   //  function closeSessionAjax() {
