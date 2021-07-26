@@ -3,8 +3,6 @@
 
 <?php
 
-    session_start();
-
     if(isset($_SESSION["employeeData"])){
         
         // Setting up action
