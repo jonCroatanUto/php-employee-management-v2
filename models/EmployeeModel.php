@@ -6,6 +6,8 @@
     }
     public function updateEmployeeData($updatedData){
 
+      try {
+        
         $query = $this->db->connect()->prepare(UPDATE_EMPLOYEE);
         $query->execute([
           'employee_no'       => $updatedData['employee_no'], 
@@ -21,9 +23,19 @@
           'emp_gender'        => $updatedData['emp_gender']
         ]);
 
+        return true;
+      }catch(\PDOException $e){
+        echo $e;
+        $_SESSION['error'] = "Error from UPDATE EMPLOYEE FROM EMPLOYEE is:\n ".$e;
+        return null;
+      }
+
     }
 
     public function insertEmployee($insertData){
+      
+      try {
+         
         $query = $this->db->connect()->prepare(INSERT_EMPLOYEE_EMPLOYEE);
         $query->execute([
           'us_id'             => $insertData['us_id'],
@@ -38,6 +50,11 @@
           'emp_phoneNum'      => $insertData['emp_phoneNum'],
           'emp_gender'        => $insertData['emp_gender']
         ]);
+        return true;
+      }catch(\PDOException $e){
+        $_SESSION['error'] = "Error from INSERT EMPLOYEE FROM EMPLOYEE is:\n ".$e;
+        return null;
+      }
 
     }
 }

@@ -59,6 +59,7 @@ function renderTable(employeesJson = {}) {
     rowDoubleClick: function (item) {
       window.location.replace(
         `${baseURL}Dashboard/dataEmployee/${item.item.employee_no}`
+        // `${baseURL}Dashboard/dataEmployee/80`
       );
     },
 

@@ -26,7 +26,7 @@ class Employee extends Controller{
             $emp_postalCode     =   $_POST['postalCode'];
             $emp_phoneNum       =   $_POST['phoneNumber'];
 
-            $this->model->updateEmployeeData([
+            if($this->model->updateEmployeeData([
 
                 'employee_no'       => $employee_no,
                 'emp_name'          => $emp_name,
@@ -39,8 +39,15 @@ class Employee extends Controller{
                 'emp_state'         => $emp_state,
                 'emp_postalCode'    => $emp_postalCode,
                 'emp_phoneNum'      => $emp_phoneNum,
-            ]);
-            header("Location:".BASE_URL."DashBoard/renderDashboard");
+            ]) === null){
+
+                return false;
+
+            }else{
+
+                header("Location:".BASE_URL."DashBoard/renderDashboard");
+
+            }
         }
     }
 
@@ -60,7 +67,7 @@ class Employee extends Controller{
             $emp_postalCode     =   $_POST['postalCode'];
             $emp_phoneNum       =   $_POST['phoneNumber'];
 
-            $this->model->insertEmployee([
+            if($this->model->insertEmployee([
                 
                 'us_id'             => $us_id,
                 'emp_name'          => $emp_name,
@@ -74,8 +81,12 @@ class Employee extends Controller{
                 'emp_phoneNum'      => $emp_phoneNum,
                 'emp_gender'        => $emp_gender,
 
-            ]);
-            header("Location:".BASE_URL."DashBoard/renderDashboard");
+            ]) === null){
+                return false;
+            }else{
+
+                header("Location:".BASE_URL."DashBoard/renderDashboard");
+            }
         }
     }
 }

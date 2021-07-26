@@ -37,12 +37,24 @@ class Router{
             // function with no params
             if($nParams === 2){
 
-                $controller->{$url[1]}();
+                if($controller->{$url[1]}() === false){
+                    echo "I'm in failed function execution";
+                    if(isset($_SESSION['error'])){
+                        $controller = new Errors($_SESSION['error']);
+                        unset($_SESSION['error']);
+                    }
+                }
             
             // function with just 1 param
             }else if($nParams === 3){
 
-                $controller->{$url[1]}($url[2]);
+                if($controller->{$url[1]}($url[2]) === false){
+                    if(isset($_SESSION['error'])){
+                        $controller = new Errors($_SESSION['error']);
+                        unset($_SESSION['error']);
+                    }
+                }
+
             
             // function with multiple params
             }else if($nParams > 3){
@@ -51,11 +63,17 @@ class Router{
                 for($i = 2; $i < $nParams; $i++){
                     array_push($params, $url[$i]);
                 }
-                $controller->{$url[1]}($params);
+                
+                if($controller->{$url[1]}($params) === false){
+                    if(isset($_SESSION['error'])){
+                        $controller = new Errors($_SESSION['error']);
+                        unset($_SESSION['error']);
+                    }
+                }
             }
             
         }else{
-            $controller=new Errors();
+            $controller = new Errors("Route error");
         }         
     }
 }
