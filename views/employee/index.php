@@ -222,6 +222,7 @@
     </div>
     <script></script>
     <script type="text/javascript" src="<?php echo constant('BASE_URL'); ?>assets/js/employee.js"></script>
+    <script type="text/javascript" src="<?php echo constant('BASE_URL'); ?>assets/js/timeout.js"></script>
     <?php
         if(isset($_SESSION["employeeData"])){
             unset($_SESSION["employeeData"]);
