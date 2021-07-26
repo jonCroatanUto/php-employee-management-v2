@@ -14,18 +14,19 @@ class Login extends Controller{
        
 
         if(!$isUser==""){    
-                        
+                     
            $this->model->checkUserPass($password,$users,$isUser);
             if(isset($_SESSION['userId'])){
                 
                 header("Location:".BASE_URL."Dashboard/renderDashboard");
-            }else{
-                $this->view->render("login/index");
-                echo "error";
-            } 
+
+            }else if(isset($_SESSION['wrongPassword'])){ 
+                header("Location:".BASE_URL);   
+            }
         }else{
-            $this->view->render("login/index");
-                echo "error";
+               echo "error";
+               $_SESSION['wrongUser']="You don't exist";
+               header("Location:".BASE_URL);
         }
     }
 }

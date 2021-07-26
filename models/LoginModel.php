@@ -32,15 +32,19 @@ class LoginModel extends Model{
           
 
   public function checkUserPass($password, $users,$use){
-   print_r ($users);
+   //print_r ($users);
+   //session_start();
     foreach($users as $user){
+    
         if(password_verify($password, $user['us_password'])&&$user["us_name"]==$use){
                 http_response_code(200);
-                session_start();
+                
                 $_SESSION['userId'] = $user["us_name"];
                 $_SESSION['creatorId'] = $user["us_id"];
                 $_SESSION['time'] = time();                  
-          }
+        }else if(!password_verify($password, $user['us_password'])){ 
+          $_SESSION['wrongPassword']="Wrong password";
+        }
       }
   }  
 }

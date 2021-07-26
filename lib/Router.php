@@ -2,7 +2,7 @@
 
 require_once "./controllers/errors.php";
 
-
+session_start();
 class Router{
 
     function __construct(){
@@ -10,8 +10,9 @@ class Router{
         $url=isset($_GET["url"]) ? $_GET['url'] : null;
         $url=rtrim($url,"/");
         $url=explode("/",$url);
-
+        //echo $url[0]."esta es la url 0";
         // Create default controller (Main) to render default view (main view)
+        
         if(empty($url[0])){
             $archivoController='./controllers/Main.php';
             require_once $archivoController;
